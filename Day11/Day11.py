@@ -2,38 +2,9 @@
 # Challenge 1 = 54054
 # Challenge 2 = 14314925001
 
-import re
 import sys
 import os
 import math
-
-def read_input(fname, t=lambda x: x, strip_lines=True, force_multi=False):
-    with open(os.path.join(sys.path[0], fname), "r") as f:
-        contents = f.read()
-    if strip_lines:
-        lines = contents.strip().split('\n\n')
-    else:
-        lines = contents.split('\n')
-    if len(lines) == 1 and not force_multi:
-        return t(lines[0])
-    return list(map(t, lines))
-
-data = read_input('input.txt')
-
-def parse_monkey(lines):
-    return {
-        "items": [int(x) for x in lines[1][18:].split(",")],
-        "op": lambda old: eval(lines[2][19:]),
-        "test": lambda x: x % int(lines[3][21:]) == 0,
-        "testnum": int(lines[3][21:]),
-        "throw": {
-            True: int(lines[4][29:]),
-            False: int(lines[5][30:]),
-        },
-    }
-
-monks = [parse_monkey(m.splitlines()) for m in data]
-
 
 class monkey:
     def __init__(self, name, items, op, test, tt, tf ):
