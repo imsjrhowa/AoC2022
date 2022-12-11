@@ -110,26 +110,6 @@ for r in range(rounds):
                     opValueL = int(parsedOp[0])
                     opValueR = int(parsedOp[1])
                 ret = opValueL + opValueR
-            elif "/" in parsedOp:
-                parsedOp = parsedOp.split("/")
-                #part 2
-                if __part2__:
-                    opValueL = int(parsedOp[0]) % MOD_List
-                    opValueR = int(parsedOp[1]) % MOD_List
-                else:
-                    opValueL = int(parsedOp[0])
-                    opValueR = int(parsedOp[1])
-                ret = opValueL / opValueR
-            elif "-" in parsedOp:
-                parsedOp = parsedOp.split("-")
-                #part 2
-                if __part2__:
-                    opValueL = int(parsedOp[0]) % MOD_List
-                    opValueR = int(parsedOp[1]) % MOD_List
-                else:
-                    opValueL = int(parsedOp[0])
-                    opValueR = int(parsedOp[1])
-                ret = opValueL - opValueR
 
             # part 1
             if not __part2__:
